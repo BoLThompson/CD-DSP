@@ -1,4 +1,4 @@
-Very crude CD-Audio DSP designed for the Cyclone II EP2C5T144C8. Specifically those nice little dev boards with the 50MHz crystal.
+Very crude CD-Audio Digital Signal Processor designed for the Cyclone II EP2C5T144C8. Specifically those nice little dev boards with the 50MHz crystal.
 
 Takes a logic-level NRZI bitstream and synchronized clock as input, outputs audio via i2s and q-subchannel data via RS232.
 A convenient source of logic-level NRZI bitstream is the Playstation 1. There are two input pins on the console's built-in DSP that you can tap into for input to this project.
