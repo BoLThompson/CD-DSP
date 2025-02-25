@@ -18,9 +18,9 @@ module frameReader(
 wire ATYPICAL;
 
 syncCatcher SyncCatcher(
-  .MOSI				(MOSI),
-  .SCK				(SCK),
-  .Pulse 			(SYNC)
+  .MOSI       (MOSI),
+  .SCK        (SCK),
+  .Pulse      (SYNC)
 );
 
 //reset by the sync pulse. alternates between ignoring three bits and capturing fifteen bits
@@ -31,12 +31,12 @@ wire [7:0] SYMBOL;
 wire finalSymbol;
 wire SYMBOL_LATCH;
 codewordDemodulator Demodulator(
-  .SYNC				(SYNC),
-  .MOSI				(MOSI),
-  .SCK				(SCK),
+  .SYNC       (SYNC),
+  .MOSI       (MOSI),
+  .SCK        (SCK),
   .SYMBOL_OUT (SYMBOL),
-  .ATYPICAL 	(ATYPICAL),
-  .LATCH_OUT	(SYMBOL_LATCH),
+  .ATYPICAL   (ATYPICAL),
+  .LATCH_OUT  (SYMBOL_LATCH),
   .finalSymbol(finalSymbol)
 );
 
@@ -60,9 +60,9 @@ wordShiftRegister //control byte is bus zero of frameword
     .DEPTH(33)
   )
   FrameWordReg(
-    .D					(SYMBOL),
-    .CLK				(SYMBOL_LATCH),
-    .Q					(frameWords)
+    .D          (SYMBOL),
+    .CLK        (SYMBOL_LATCH),
+    .Q          (frameWords)
 );
 
 //delay the finalSymbol flag by one SCK before sending out our dataValid flag

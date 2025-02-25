@@ -2,9 +2,9 @@ module CircFinalDelay #(
   parameter WIDTH = 8,
   parameter WORDS = 24
 )(
-  input 			[WORDS-1:0][WIDTH-1:0]	D,
-  input 															CLK,
-  output wire [WORDS-1:0][WIDTH-1:0]	Q
+  input       [WORDS-1:0][WIDTH-1:0]  D,
+  input                               CLK,
+  output wire [WORDS-1:0][WIDTH-1:0]  Q
 );
 
 reg [(WORDS/2)-1:0][WIDTH-1:0] int_ltch1;

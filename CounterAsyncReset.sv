@@ -4,10 +4,10 @@ module CounterAsyncReset #(
   parameter VAL_MAX = 2^(DATA_WIDTH-1),
   parameter AUTO_RESET = 0
 )(
-  input 												rst,
-  input 												clk,
-  input													clkInhibit,
-  output reg [DATA_WIDTH-1:0] 	out
+  input                         rst,
+  input                         clk,
+  input                         clkInhibit,
+  output reg [DATA_WIDTH-1:0]   out
 );
 
 always @(posedge clk or posedge rst) begin

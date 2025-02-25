@@ -4,9 +4,9 @@ module wordShiftRegister
     parameter DEPTH = 33
   )
   (
-    input				[WIDTH-1:0] 	D,
-    input											CLK,
-    output	reg	[DEPTH-1:0][WIDTH-1:0]		Q
+    input       [WIDTH-1:0]   D,
+    input                     CLK,
+    output  reg [DEPTH-1:0][WIDTH-1:0]    Q
   );
 
 always @(posedge CLK) begin

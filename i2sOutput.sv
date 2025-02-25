@@ -1,17 +1,17 @@
 module i2sOutput (
-  input							CLK50MHZ,
-  input 	[15:0]		sampleL,
-  input		[15:0]		sampleR,
-  input							txEnable,
-  output	reg				BitClk,
-  output	reg				LrClk,
-  output	wire			i2sData,
-  output	reg				txBegin
+  input             CLK50MHZ,
+  input   [15:0]    sampleL,
+  input   [15:0]    sampleR,
+  input             txEnable,
+  output  reg       BitClk,
+  output  reg       LrClk,
+  output  wire      i2sData,
+  output  reg       txBegin
 );
 
 //generate the bit clock
-reg [5:0] BitClkAccumulator;	//counts up to alternating 35/36 master clock cycles
-reg  BitClkAccToggle;					//tracks the alternation
+reg [5:0] BitClkAccumulator;  //counts up to alternating 35/36 master clock cycles
+reg  BitClkAccToggle;         //tracks the alternation
 always @(posedge CLK50MHZ) begin
     case (BitClkAccumulator + 1 + BitClkAccToggle)
       6'd36: begin
@@ -29,11 +29,11 @@ always @(posedge CLK50MHZ) begin
 end
 
 reg[7:0] state = 8'd0;
-reg [32:0] sampleShiftReg;	//shift register is an extra bit wide
+reg [32:0] sampleShiftReg;  //shift register is an extra bit wide
                               //data must be delayed 1 BitClk w/ respect to LrClk
 always @(negedge BitClk) begin
   case (state)
-    8'd00:	//idle
+    8'd00:  //idle
       if (txEnable) begin
         state <= state + 1'd1;
         LrClk <= 0;
