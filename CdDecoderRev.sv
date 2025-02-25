@@ -1,12 +1,12 @@
 module cdDecoderRev(
-  input       MosiIn,		//'perfect' input from the mcu
+  input       MosiIn,   //'perfect' input from the mcu
   input       SckMosi,  //timing
   input       modeSel,  //connect to ground to select ps1 inputs
-  input       NrziIn,		//lousy input from the laser
+  input       NrziIn,   //lousy input from the laser
   input       SckNrzi,  //timing
   input       CLK50MHZ,
   output      TxO,
-  output      BitClk,			//1.411200 MHz, or very close at least
+  output      BitClk,     //1.411200 MHz, or very close at least
   output      LrClk,      //44.1 kHz aligned with BitClk falling edge
   output      i2sData,
   output wire NRZIout,
